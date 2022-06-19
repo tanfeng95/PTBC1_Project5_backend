@@ -1,0 +1,45 @@
+{
+  "name": "ptbc1_project5_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs",
+    "watch": "nodemon index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanfeng95/PTBC1_Project5_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanfeng95/PTBC1_Project5_backend/issues"
+  },
+  "homepage": "https://github.com/tanfeng95/PTBC1_Project5_backend#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "method-override": "^3.0.0",
+    "node-sass": "^7.0.1",
+    "pg": "^8.7.3",
+    "sass-loader": "^13.0.0",
+    "sequelize": "^6.21.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "@faker-js/faker": "^7.2.0",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.16",
+    "sequelize-cli": "^6.4.1"
+  }
+}
