@@ -1,6 +1,6 @@
 module.exports = {
   development: {
-    username: 'tanfeng95',
+    username: 'Chan Keet',
     password: null,
     database: 'PTBC1_project5',
     host: '127.0.0.1',
