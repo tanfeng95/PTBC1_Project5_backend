@@ -1,7 +1,8 @@
+import { response } from 'express';
+
 export default function initProductsController(db) {
-  const index = async (request, response) => {
+  const FindAllProduct = async (request, response) => {
     try {
-      //const Product = await db.Product.findAll({ include: ['user'] });
       const Product = await db.Product.findAll();
       response.send({ Product });
     } catch (error) {
@@ -9,7 +10,17 @@ export default function initProductsController(db) {
     }
   };
 
+  const getProductById = async (request, response) => {
+    try {
+      const Product = await db.Product.findByPk(request.params.id);
+      response.send(Product);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
-    index,
+    FindAllProduct,
+    getProductById,
   };
 }
