@@ -29,13 +29,13 @@ export default function initProductModel(sequelize, DataTypes) {
       material: {
         type: DataTypes.STRING,
       },
-      // merchant_id: {
-      //   type: DataTypes.INTEGER,
-      //   references: {
-      //     model: 'users',
-      //     key: 'id',
-      //   },
-      // },
+      merchant_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
+      },
       created_at: {
         allowNull: false,
         type: DataTypes.DATE,

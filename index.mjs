@@ -24,6 +24,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static('images'));
 // Bind route definitions to the Express application
 bindRoutes(app);
 

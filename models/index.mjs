@@ -44,6 +44,8 @@ db.OrderUser = initOrderUserModel(sequelize, Sequelize.DataTypes);
 // db.Product.belongsTo(db.User, { foreignKey: { name: 'merchant_id', field: 'merchant_id' } });
 db.Product.belongsTo(db.User, { foreignKey: 'merchant_id' });
 db.User.hasMany(db.Product, { foreignKey: 'merchant_id' });
+// db.Product.belongsTo(db.User);
+// db.User.hasMany(db.Product);
 
 // one product can have many orders
 db.Order.belongsTo(db.Product);
