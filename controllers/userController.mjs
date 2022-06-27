@@ -37,7 +37,7 @@ export default function initUserController(db) {
 
     const FindUser = await db.User.findAll({
       where: {
-        username: request.body.name,
+        email: request.body.email,
       },
     });
     if (FindUser.length !== 0) {
@@ -46,12 +46,19 @@ export default function initUserController(db) {
       return;
     }
 
-    const shaObj = new jsSHA('SHA-512', 'TEXT', { encoding: 'UTF8' });
-    shaObj.update(request.body.password);
-    const hashedPassword = shaObj.getHash('HEX');
+    // const shaObj = new jsSHA('SHA-512', 'TEXT', { encoding: 'UTF8' });
+    // shaObj.update(request.body.password);
+    // const hashedPassword = shaObj.getHash('HEX');
+    const newUser = request.body.email;
+    const array = newUser.split('@');
+    console.log(array[0]);
     const user = {
-      username: request.body.name,
-      password: hashedPassword,
+      email: request.body.email,
+      username: array[0],
+      password: request.body.password,
+      role: 'buyer',
+      created_at: Date.now(),
+      updated_at: Date.now(),
     };
     const createUser = await db.User.create(user);
     reponse.send(createUser);
