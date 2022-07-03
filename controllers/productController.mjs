@@ -32,9 +32,29 @@ export default function initProductsController(db) {
     }
   };
 
+  const deleteProductById = async (request, response) => {
+    try {
+      const shopProduct = await db.Product.findOne({
+        where: {
+          merchant_id: request.params.merchantId,
+          id: request.params.productId,
+        },
+      });
+
+      if (shopProduct) {
+        await shopProduct.destroy();
+      }
+
+      response.send('Product deleted');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     FindAllProduct,
     getProductById,
     getProductByMerchantId,
+    deleteProductById,
   };
 }
