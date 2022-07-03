@@ -19,8 +19,22 @@ export default function initProductsController(db) {
     }
   };
 
+  const getProductByMerchantId = async (request, response) => {
+    try {
+      const shopProduct = await db.Product.findAll({
+        where: {
+          merchant_id: request.params.id,
+        },
+      });
+      response.send(shopProduct);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     FindAllProduct,
     getProductById,
+    getProductByMerchantId,
   };
 }
