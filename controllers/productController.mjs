@@ -51,10 +51,34 @@ export default function initProductsController(db) {
     }
   };
 
+  const addProduct = async (request, response) => {
+    try {
+      const product = {
+        name: request.body.name,
+        price: parseFloat(request.body.price),
+        image: request.body.image,
+        department: request.body.department,
+        adjective: request.body.adjective,
+        description: request.body.description,
+        material: request.body.material,
+        merchant_id: request.params.merchantId,
+        created_at: new Date(),
+        updated_at: new Date(),
+      };
+      console.log('adding the product', product);
+      const shopProduct = await db.Product.create(product);
+
+      response.send(shopProduct);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return {
     FindAllProduct,
     getProductById,
     getProductByMerchantId,
     deleteProductById,
+    addProduct,
   };
 }
