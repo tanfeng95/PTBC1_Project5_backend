@@ -7,20 +7,36 @@ export default function initOrdersController(db) {
 
       // console.log(request.body);
       // console.log(request.body.userId);
+      const { userId } = request.body;
       const { newOrder } = request.body;
       console.log(newOrder);
+      console.log(newOrder.length);
       console.log(newOrder[0].id);
 
-      request.body.newOrder.forEach((order) => {
-        
-      });
+      for (let i = 0; i < newOrder.length; i++) {
+        // eslint-disable-next-line no-await-in-loop
+        const createNewOrder = await db.Order.create({
+          buyer_id: userId,
+          product_id: Number(newOrder[i].id),
+          quantity: Number(newOrder[i].quanity),
+          created_at: new Date(),
+          updated_at: new Date(),
+        });
 
-      // const createNewOrder = await db.Order.create({
-      //   product_id: Number(newOrder[0].id),
-      //   quantity: Number(newOrder[0].quanity),
-      //   created_at: new Date(),
-      //   updated_at: new Date(),
+        // eslint-disable-next-line no-await-in-loop
+        const createOrderUser = await db.OrderUser.create({
+          order_id: createNewOrder.id,
+          buyer_id: userId,
+          merchant_id: newOrder[i].merchant_id,
+          created_at: new Date(),
+          updated_at: new Date(),
+        });
+      }
+
+      // await request.body.newOrder.forEach((order) => {
+
       // });
+
       // const newOrder = await db.Order.create({
       //   product_id: Number(request.body.userId),
       //   quantity:  ,
@@ -41,7 +57,31 @@ export default function initOrdersController(db) {
     }
   };
 
+  const getOrderByUserId = async (request, response) => {
+    console.log(request.params.id);
+    const userOrder = await db.Order.findAll({
+      where: {
+        buyer_id: request.params.id,
+      },
+      include: {
+        model: db.Product,
+      },
+    });
+    console.log(userOrder);
+    response.send({ userOrder });
+    // const userOrder = await db.Order.findAll({
+    //   where: {
+    //     buyer_id: request.params.id,
+    //   },
+    //   include: {
+    //     model: db.Product,
+    //   },
+    // });
+    // response.send({ userOrder });
+  };
+
   return {
     addOrder,
+    getOrderByUserId,
   };
 }
