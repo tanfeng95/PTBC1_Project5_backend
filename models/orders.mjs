@@ -8,6 +8,13 @@ export default function initOrderModel(sequelize, DataTypes) {
         primaryKey: true,
         type: DataTypes.INTEGER,
       },
+      buyer_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id',
+        },
+      },
       product_id: {
         type: DataTypes.INTEGER,
         references: {

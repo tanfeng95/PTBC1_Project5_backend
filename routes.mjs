@@ -15,10 +15,10 @@ export default function bindRoutes(app) {
   app.post('/login', userController.login);
   app.post('/signup', userController.signup);
   app.post('/createOrder', orderController.addOrder);
-  
+  app.get('/order/:id', orderController.getOrderByUserId);
+
   app.get('/merchant/dashboard/:id', productController.getProductByMerchantId);
   app.get('/merchant/:id', productController.getProductByMerchantId);
   app.put('/merchant/product/delete/:merchantId/:productId', productController.deleteProductById);
   app.post('/merchant/product/add/:merchantId', productController.addProduct);
-
 }

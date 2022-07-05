@@ -53,9 +53,9 @@ db.Product.hasMany(db.Order);
 
 // many to many order to users
 
-db.User.belongsToMany(db.Order, { through: 'order_book', foreignKey: 'buyer_id' });
-db.User.belongsToMany(db.Order, { through: 'order_book', foreignKey: 'merchant_id' });
-db.Order.belongsToMany(db.User, { through: 'order_book', foreignKey: 'order_id' });
+db.User.belongsToMany(db.Order, { through: 'orders_users', foreignKey: 'buyer_id' });
+db.User.belongsToMany(db.Order, { through: 'orders_users', foreignKey: 'merchant_id' });
+db.Order.belongsToMany(db.User, { through: 'orders_users', foreignKey: 'order_id' });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

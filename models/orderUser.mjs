@@ -1,6 +1,6 @@
 export default function initOrderUserModel(sequelize, DataTypes) {
   return sequelize.define(
-    'order_book',
+    'orders_users',
     {
       id: {
         allowNull: false,
