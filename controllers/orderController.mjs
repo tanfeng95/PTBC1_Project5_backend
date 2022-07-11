@@ -80,8 +80,23 @@ export default function initOrdersController(db) {
     // response.send({ userOrder });
   };
 
+  const getOrderByMerchantId = async (request, response) => {
+    console.log(request.params.id);
+    const merchantOrder = await db.Product.findAll({
+      where: {
+        merchant_id: request.params.id,
+      },
+      include: {
+        model: db.Order,
+      },
+    });
+    console.log(merchantOrder);
+    response.send({ merchantOrder });
+  };
+
   return {
     addOrder,
     getOrderByUserId,
+    getOrderByMerchantId,
   };
 }
