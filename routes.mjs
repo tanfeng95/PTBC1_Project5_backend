@@ -17,8 +17,8 @@ export default function bindRoutes(app) {
   app.post('/createOrder', orderController.addOrder);
   app.get('/order/:id', orderController.getOrderByUserId);
 
-  app.get('/merchant/dashboard/:id', productController.getProductByMerchantId);
-  app.get('/merchant/dashboard/:id', productController.getOrderByMerchantId);
+  app.get('/merchant/product/:id', productController.getProductByMerchantId);
+  app.get('/merchant/dashboard/:id', orderController.getOrderByMerchantId);
   app.get('/merchant/:id', productController.getProductByMerchantId);
   app.put('/merchant/product/delete/:merchantId/:productId', productController.deleteProductById);
   app.post('/merchant/product/add/:merchantId', productController.addProduct);
