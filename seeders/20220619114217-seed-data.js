@@ -1,40 +1,40 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    // const userData = [
-    //   {
-    //     username: 'zaver',
-    //     email: 'zaver@gmail.com',
-    //     password: 'zaver',
-    //     role: 'buyer',
-    //     created_at: new Date(),
-    //     updated_at: new Date(),
-    //   },
-    //   {
-    //     username: 'zaver1',
-    //     email: 'zaver1@gmail.com',
-    //     password: 'zaver1',
-    //     role: 'merchant',
-    //     created_at: new Date(),
-    //     updated_at: new Date(),
-    //   },
-    //   {
-    //     username: 'CK',
-    //     email: 'CK@gmail.com',
-    //     password: 'ck',
-    //     role: 'buyer',
-    //     created_at: new Date(),
-    //     updated_at: new Date(),
-    //   },
-    //   {
-    //     username: 'CK1',
-    //     email: 'CK1@gmail.com',
-    //     password: 'ck1',
-    //     role: 'merchant',
-    //     created_at: new Date(),
-    //     updated_at: new Date(),
-    //   },
-    // ];
-    // await queryInterface.bulkInsert('users', userData);
+    const userData = [
+      {
+        username: 'zaver',
+        email: 'zaver@gmail.com',
+        password: 'zaver',
+        role: 'buyer',
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        username: 'zaver1',
+        email: 'zaver1@gmail.com',
+        password: 'zaver1',
+        role: 'merchant',
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        username: 'CK',
+        email: 'CK@gmail.com',
+        password: 'ck',
+        role: 'buyer',
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        username: 'CK1',
+        email: 'CK1@gmail.com',
+        password: 'ck1',
+        role: 'merchant',
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+    ];
+    await queryInterface.bulkInsert('users', userData);
 
     const productData = [
       {
@@ -160,10 +160,78 @@ module.exports = {
 
     ];
     await queryInterface.bulkInsert('products', productData);
+
+    const orderData = [
+      {
+        buyer_id: 1,
+        product_id: 1,
+        quantity: 3,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        buyer_id: 1,
+        product_id: 3,
+        quantity: 1,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        buyer_id: 1,
+        product_id: 4,
+        quantity: 2,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        buyer_id: 1,
+        product_id: 6,
+        quantity: 1,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        buyer_id: 1,
+        product_id: 8,
+        quantity: 5,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        buyer_id: 3,
+        product_id: 2,
+        quantity: 3,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        buyer_id: 3,
+        product_id: 4,
+        quantity: 2,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        buyer_id: 3,
+        product_id: 6,
+        quantity: 1,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+      {
+        buyer_id: 3,
+        product_id: 7,
+        quantity: 6,
+        created_at: new Date(),
+        updated_at: new Date(),
+      },
+    ];
+    await queryInterface.bulkInsert('orders', orderData);
   },
 
   down: async (queryInterface, Sequelize) => {
-    // await queryInterface.bulkDelete('users', null, {});
-    // await queryInterface.bulkDelete('products', null, {});
+    await queryInterface.bulkDelete('users', null, {});
+    await queryInterface.bulkDelete('products', null, {});
+    await queryInterface.bulkDelete('orders', null, {});
   },
 };
