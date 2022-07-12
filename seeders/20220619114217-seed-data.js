@@ -1,3 +1,5 @@
+const { faker } = require('@faker-js/faker');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const userData = [
@@ -166,64 +168,64 @@ module.exports = {
         buyer_id: 1,
         product_id: 1,
         quantity: 3,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
       {
         buyer_id: 1,
         product_id: 3,
         quantity: 1,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
       {
         buyer_id: 1,
         product_id: 4,
         quantity: 2,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
       {
         buyer_id: 1,
         product_id: 6,
         quantity: 1,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
       {
         buyer_id: 1,
         product_id: 8,
         quantity: 5,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
       {
         buyer_id: 3,
         product_id: 2,
         quantity: 3,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
       {
         buyer_id: 3,
         product_id: 4,
         quantity: 2,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
       {
         buyer_id: 3,
         product_id: 6,
         quantity: 1,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
       {
         buyer_id: 3,
         product_id: 7,
         quantity: 6,
-        created_at: new Date(),
-        updated_at: new Date(),
+        created_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
+        updated_at: faker.date.between('2022-01-01T00:00:00.000Z', '2022-01-10T00:00:00.000Z'),
       },
     ];
     await queryInterface.bulkInsert('orders', orderData);
