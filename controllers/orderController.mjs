@@ -90,7 +90,6 @@ export default function initOrdersController(db) {
         model: db.Order,
       },
     });
-    console.log(merchantOrder);
     response.send({ merchantOrder });
   };
 
