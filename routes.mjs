@@ -14,6 +14,7 @@ export default function bindRoutes(app) {
   app.get('/product/:id', productController.getProductById);
   app.post('/login', userController.login);
   app.post('/signup', userController.signup);
+  app.get('/user/:id', userController.getUserById);
   app.post('/createOrder', orderController.addOrder);
   app.get('/order/:id', orderController.getOrderByUserId);
 

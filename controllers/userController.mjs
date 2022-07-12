@@ -63,11 +63,15 @@ export default function initUserController(db) {
     const createUser = await db.User.create(user);
     reponse.send(createUser);
   };
-  // const getUserById = async (request, reponse) => {
-  //   console.log(request.body);
-  // };
+  const getUserById = async (request, reponse) => {
+    console.log('get user id');
+    console.log(request.params.id);
+    const user = await db.User.findByPk(request.params.id);
+    console.log(user);
+    reponse.send(user);
+  };
   return {
-    // getUserById,
+    getUserById,
     login,
     signup,
   };
