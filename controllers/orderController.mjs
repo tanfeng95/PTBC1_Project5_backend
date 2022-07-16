@@ -1,4 +1,7 @@
 import { response } from 'express';
+import Stripe from 'stripe';
+
+const stripe = new Stripe('sk_test_...');
 
 export default function initOrdersController(db) {
   const addOrder = async (request, response) => {
