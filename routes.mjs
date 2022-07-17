@@ -23,4 +23,6 @@ export default function bindRoutes(app) {
   app.get('/merchant/:id', productController.getProductByMerchantId);
   app.put('/merchant/product/delete/:merchantId/:productId', productController.deleteProductById);
   app.post('/merchant/product/add/:merchantId', productController.addProduct);
+  app.get('/merchant/product/edit/:merchantId/:productId', productController.getProductByMerchantIdByProductId);
+  app.put('/merchant/product/edit/:merchantId/:productId', productController.editProduct);
 }
