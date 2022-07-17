@@ -48,6 +48,20 @@ export default function initProductsController(db) {
     }
   };
 
+  const getProductByMerchantIdByProductId = async (request, response) => {
+    try {
+      const shopProduct = await db.Product.findOne({
+        where: {
+          merchant_id: request.params.merchantId,
+          id: request.params.productId,
+        },
+      });
+      response.send(shopProduct);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const deleteProductById = async (request, response) => {
     try {
       const shopProduct = await db.Product.findOne({
@@ -94,6 +108,7 @@ export default function initProductsController(db) {
     FindAllProduct,
     getProductById,
     getProductByMerchantId,
+    getProductByMerchantIdByProductId,
     deleteProductById,
     addProduct,
   };
