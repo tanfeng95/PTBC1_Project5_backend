@@ -1,9 +1,25 @@
 import { response } from 'express';
+import pkg from 'sequelize';
+
+const { Op } = pkg;
 
 export default function initProductsController(db) {
   const FindAllProduct = async (request, response) => {
     try {
-      const Product = await db.Product.findAll();
+      console.log(request.query.search);
+      let Product;
+      if (request.query.search) {
+        Product = await db.Product.findAll({
+          where: {
+            name: {
+              [Op.like]: `%${request.query.search}%`,
+            },
+          },
+        });
+      } else {
+        Product = await db.Product.findAll();
+      }
+
       response.send({ Product });
     } catch (error) {
       console.log(error);
