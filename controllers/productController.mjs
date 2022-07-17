@@ -95,8 +95,35 @@ export default function initProductsController(db) {
         created_at: new Date(),
         updated_at: new Date(),
       };
-      console.log('adding the product', product);
       const shopProduct = await db.Product.create(product);
+
+      response.send(shopProduct);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const editProduct = async (request, response) => {
+    try {
+      const product = {
+        name: request.body.name,
+        price: parseFloat(request.body.price),
+        // image: request.body.image,
+        department: request.body.department,
+        adjective: request.body.adjective,
+        description: request.body.description,
+        material: request.body.material,
+        updated_at: new Date(),
+      };
+      const shopProduct = await db.Product.update(
+        product,
+        {
+          where: {
+            id: request.params.productId,
+            merchant_id: request.params.merchantId,
+          },
+        },
+      );
 
       response.send(shopProduct);
     } catch (error) {
@@ -111,5 +138,6 @@ export default function initProductsController(db) {
     getProductByMerchantIdByProductId,
     deleteProductById,
     addProduct,
+    editProduct,
   };
 }
