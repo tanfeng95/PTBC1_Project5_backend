@@ -63,10 +63,15 @@ export default function initOrdersController(db) {
       where: {
         buyer_id: request.params.id,
       },
+      order: [
+        ['created_at', 'DESC'],
+
+      ],
       include: {
         model: db.Product,
       },
     });
+
     console.log(userOrder);
     response.send({ userOrder });
     // const userOrder = await db.Order.findAll({
