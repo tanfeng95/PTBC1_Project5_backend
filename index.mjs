@@ -21,10 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 // Bind method override middleware to parse PUT and DELETE requests sent as POST requests
 app.use(methodOverride('_method'));
 // Expose the files stored in the public folder
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('images'));
 // Bind route definitions to the Express application
 bindRoutes(app);
 
