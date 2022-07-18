@@ -108,7 +108,7 @@ export default function initProductsController(db) {
       const product = {
         name: request.body.name,
         price: parseFloat(request.body.price),
-        // image: request.body.image,
+        image: request.body.image,
         department: request.body.department,
         adjective: request.body.adjective,
         description: request.body.description,
