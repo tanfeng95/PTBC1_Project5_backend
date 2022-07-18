@@ -16,7 +16,7 @@ export default function bindRoutes(app) {
       cb(null, 'public/images');
     },
     filename: (req, file, cb) => {
-      cb(null, `${file.fieldname}-${Date.now()}`);
+      cb(null, `${file.originalname}`);
     },
   });
 
